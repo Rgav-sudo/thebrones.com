@@ -9,22 +9,12 @@
     body { font-family: 'Montserrat', sans-serif; background: #121212; color: #f0f0f0; margin: 0; }
     nav { background: #1db954; padding: 1em; text-align: center; }
     nav a { color: #000; text-decoration: none; margin: 0 1em; font-weight: bold; }
-    main { padding: 2em; max-width: 800px; margin: auto; }
+    main { padding: 2em; max-width: 600px; margin: auto; }
     footer { background: #1db954; text-align: center; padding: 1em; color: #000; margin-top: 2em; }
-    iframe { width: 100%; border: none; }
-    a { color: #1db954; }
+    input, textarea { font-family: inherit; }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-B0DLGFTMH6');
-  </script>
 </head>
 <body>
-  
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -32,9 +22,30 @@
     <a href="events.html">Events</a>
     <a href="contact.html">Contact</a>
   </nav>
-
   <main>
-    <h1>Contact Us</h1><p><strong>Email:</strong> Coming soon! For now, reach out to the band manager directly.</p>
+    <h1>Contact The Brones</h1>
+    <p>Use the form below to reach out to the band. Booking, fan mail, or feedback — we’d love to hear it!</p>
+
+    <form action="https://formspree.io/f/xjkwjyjb" method="POST" style="display: flex; flex-direction: column; gap: 1em;">
+      <label>
+        Name:
+        <input type="text" name="name" required style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;" />
+      </label>
+
+      <label>
+        Email:
+        <input type="email" name="email" required style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;" />
+      </label>
+
+      <label>
+        Message:
+        <textarea name="message" rows="6" required style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;"></textarea>
+      </label>
+
+      <button type="submit" style="background-color: #1db954; color: black; padding: 0.75em; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+        Send Message
+      </button>
+    </form>
   </main>
   <footer>&copy; 2025 The Brones</footer>
 </body>
