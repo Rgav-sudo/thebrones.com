@@ -49,7 +49,7 @@
 
     #cookie-banner .banner-buttons {
       display: flex;
-      gap: 1em;
+      gap: 0.75em;
       flex-direction: column;
       width: 100%;
       max-width: 300px;
@@ -67,7 +67,7 @@
     .accept-btn { background-color: #1db954; color: #000; }
     .decline-btn { background-color: #555; color: white; }
 
-    @media(min-width: 600px) {
+    @media(min-width: 720px) {
       #cookie-banner {
         flex-direction: row;
         justify-content: space-between;
@@ -83,12 +83,14 @@
 
       #cookie-banner .banner-buttons {
         flex-direction: row;
+        justify-content: flex-end;
         max-width: none;
         width: auto;
       }
 
       #cookie-banner .banner-buttons button {
         width: auto;
+        max-width: 150px;
       }
     }
   </style>
