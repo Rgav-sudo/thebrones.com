@@ -5,68 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Brones</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #121212;
-      color: #f0f0f0;
-    }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: #121212; color: #f0f0f0; }
+    nav { background-color: #1db954; padding: 1em; text-align: center; }
+    nav a { color: #000; text-decoration: none; margin: 0 1em; font-weight: bold; }
     header {
       background: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; color: white;
     }
     header h1 {
-      font-size: 4rem;
-      margin: 0;
-      background-color: rgba(0,0,0,0.5);
-      padding: 0.5em 1em;
-      border-radius: 10px;
+      font-size: 4rem; margin: 0; background-color: rgba(0,0,0,0.5); padding: 0.5em 1em; border-radius: 10px;
     }
     header p {
-      font-size: 1.5rem;
-      background-color: rgba(0,0,0,0.4);
-      padding: 0.5em 1em;
-      border-radius: 8px;
-      margin-top: 1rem;
+      font-size: 1.5rem; background-color: rgba(0,0,0,0.4); padding: 0.5em 1em; border-radius: 8px; margin-top: 1rem;
     }
-    nav {
-      background-color: #1db954;
-      padding: 1em;
-      text-align: center;
+    main { padding: 2em; text-align: center; }
+    footer { background-color: #1db954; color: #000; text-align: center; padding: 1em; margin-top: 2em; }
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; width: 100%;
+      background: #222; color: white; padding: 1em; display: flex; justify-content: space-between; align-items: center;
+      z-index: 1000;
     }
-    nav a {
-      color: #000;
-      text-decoration: none;
-      margin: 0 1em;
-      font-weight: bold;
+    #cookie-banner button {
+      margin-left: 1em; padding: 0.5em 1em; font-weight: bold; border: none; cursor: pointer; border-radius: 4px;
     }
-    main {
-      padding: 2em;
-      text-align: center;
-    }
-    main h2 {
-      margin-bottom: 1em;
-    }
-    main p {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
-    footer {
-      background-color: #1db954;
-      color: #000;
-      text-align: center;
-      padding: 1em;
-      margin-top: 2em;
-    }
+    .accept-btn { background-color: #1db954; color: #000; }
+    .decline-btn { background-color: #555; color: white; }
   </style>
 </head>
 <body>
@@ -87,29 +53,46 @@
   </main>
   <footer>&copy; 2025 Brone Media</footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
+  <div id="cookie-banner">
+    <span>This site uses cookies for analytics and embedded media. Choose your preference.</span>
+    <div>
+      <button class="accept-btn" onclick="setConsent(true)">Accept</button>
+      <button class="decline-btn" onclick="setConsent(false)">Decline</button>
+    </div>
+  </div>
+
   <script>
-    window.addEventListener("load", function(){
-      window.cookieconsent.initialise({
-        "palette": {
-          "popup": {
-            "background": "#000"
-          },
-          "button": {
-            "background": "#1db954",
-            "text": "#000"
-          }
-        },
-        "theme": "classic",
-        "position": "bottom-right",
-        "content": {
-          "message": "We use cookies for analytics and embedded media to improve your experience.",
-          "dismiss": "Got it!",
-          "link": "Learn more",
-          "href": "https://www.cookiesandyou.com"
-        }
-      })
-    });
+    function setConsent(consent) {
+      document.cookie = "cookie_consent=" + consent + "; path=/; max-age=" + (60 * 60 * 24 * 365);
+      document.getElementById('cookie-banner').style.display = 'none';
+      if (consent) {
+        loadAnalytics();
+      }
+    }
+
+    function loadAnalytics() {
+      const ga = document.createElement("script");
+      ga.setAttribute("async", "");
+      ga.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6");
+      document.head.appendChild(ga);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-B0DLGFTMH6');
+    }
+
+    function checkConsent() {
+      if (document.cookie.includes("cookie_consent=true")) {
+        document.getElementById('cookie-banner').style.display = 'none';
+        loadAnalytics();
+      } else if (document.cookie.includes("cookie_consent=false")) {
+        document.getElementById('cookie-banner').style.display = 'none';
+      }
+    }
+
+    window.onload = checkConsent;
   </script>
 </body>
 </html>
