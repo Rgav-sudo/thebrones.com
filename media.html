@@ -27,14 +27,34 @@
     footer { background-color: #1db954; color: #000; text-align: center; padding: 1em; margin-top: 2em; }
     #cookie-banner {
       position: fixed; bottom: 0; left: 0; width: 100%;
-      background: #222; color: white; padding: 1em; display: flex; justify-content: space-between; align-items: center;
+      background: #222; color: white; padding: 1em;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
       z-index: 1000;
     }
+    #cookie-banner span {
+      flex: 1 1 100%; margin-bottom: 0.5em;
+    }
+    #cookie-banner div {
+      flex: 1 1 100%; display: flex; justify-content: center; gap: 1em;
+    }
     #cookie-banner button {
-      margin-left: 1em; padding: 0.5em 1em; font-weight: bold; border: none; cursor: pointer; border-radius: 4px;
+      padding: 0.5em 1em; font-weight: bold; border: none; cursor: pointer; border-radius: 4px;
     }
     .accept-btn { background-color: #1db954; color: #000; }
     .decline-btn { background-color: #555; color: white; }
+    @media(min-width: 600px) {
+      #cookie-banner {
+        flex-wrap: nowrap;
+      }
+      #cookie-banner span {
+        flex: 3;
+        margin-bottom: 0;
+      }
+      #cookie-banner div {
+        flex: 1;
+        justify-content: flex-end;
+      }
+    }
   </style>
 </head>
 <body>
@@ -50,7 +70,7 @@
     <h2>Latest Release: Arcade</h2>
     <div id="spotify-container">
       <div class="spotify-placeholder" id="spotify-placeholder">
-        This Spotify preview requires cookie consent to load. Click below to allow.
+        This Spotify preview requires cookie consent. Click below to load it.
         <br />
         <button onclick="loadSpotify()">Load Spotify Player</button>
       </div>
