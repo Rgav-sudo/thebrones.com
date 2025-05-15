@@ -47,7 +47,9 @@
       color: #1db954;
       text-decoration: none;
     }
-    #cookie-banner {
+    
+  </style>
+<style>#cookie-banner {
       position: fixed;
       bottom: 0;
       left: 0;
@@ -86,8 +88,7 @@
     }
 
     .accept-btn { background-color: #1db954; color: #000; }
-    .decline-btn { background-color: #555; color: white; }
-  </style>
+    .decline-btn { background-color: #555; color: white; }</style>
 </head>
 <body>
   <header>
@@ -123,14 +124,16 @@
     © 2025 Brone Media
   </footer>
 
-  <div id="cookie-banner">
+  
+  <script></script>
+<div id="cookie-banner">
     <div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
     <div class="banner-buttons">
       <button class="accept-btn" onclick="setConsent(true)">Accept</button>
       <button class="decline-btn" onclick="setConsent(false)">Decline</button>
     </div>
   </div>
-  <script>function setConsent(consent) {
+<script>function setConsent(consent) {
       document.cookie = "cookie_consent=" + consent + "; path=/; max-age=" + (60 * 60 * 24 * 365);
       document.getElementById('cookie-banner').style.display = 'none';
       if (consent) {
