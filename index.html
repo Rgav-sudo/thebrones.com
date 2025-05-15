@@ -2,162 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index - The Brones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Brones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #111;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
     }
-    header, footer {
+    header {
+      background: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    header h1 {
+      font-size: 4rem;
+      margin: 0;
+      background-color: rgba(0,0,0,0.5);
+      padding: 0.5em 1em;
+      border-radius: 10px;
+    }
+    header p {
+      font-size: 1.5rem;
+      background-color: rgba(0,0,0,0.4);
+      padding: 0.5em 1em;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    nav {
       background-color: #1db954;
-      padding: 1em 0;
-      font-weight: bold;
+      padding: 1em;
+      text-align: center;
     }
     nav a {
-      color: black;
-      margin: 0 15px;
+      color: #000;
       text-decoration: none;
+      margin: 0 1em;
       font-weight: bold;
     }
-    h1 {
-      margin-top: 2rem;
-      font-size: 2rem;
+    main {
+      padding: 2em;
+      text-align: center;
     }
-    h2 {
-      margin-top: 0.5rem;
-      font-size: 1.3rem;
+    main h2 {
+      margin-bottom: 1em;
     }
-    .footer {
-      margin-top: 4rem;
-      padding: 1rem;
+    main p {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+    footer {
       background-color: #1db954;
-      color: black;
-    }
-    .follow {
+      color: #000;
+      text-align: center;
+      padding: 1em;
       margin-top: 2em;
     }
-    .follow a {
-      display: block;
-      margin: 0.25em;
-      color: #1db954;
-      text-decoration: none;
-    }
-    
   </style>
-<style>#cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #222;
-      color: white;
-      padding: 1em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 1000;
-      font-size: 0.95rem;
-    }
-
-    #cookie-banner .banner-text {
-      text-align: center;
-      margin-bottom: 0.75em;
-      padding: 0 1em;
-    }
-
-    #cookie-banner .banner-buttons {
-      display: flex;
-      gap: 0.75em;
-      flex-direction: column;
-      width: 100%;
-      max-width: 300px;
-    }
-
-    #cookie-banner .banner-buttons button {
-      width: 100%;
-      padding: 0.6em 1em;
-      font-weight: bold;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .accept-btn { background-color: #1db954; color: #000; }
-    .decline-btn { background-color: #555; color: white; }</style>
 </head>
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="media.html">Media</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="media.html">Media</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <h1>The Brones</h1>
+    <p>Alternative & Metal from Louisiana & Arizona</p>
   </header>
-
   <main>
-    <h1>Welcome to the Official Brones Website</h1>
-    <p>Check out our music, upcoming events, and more!</p>
-    <div class="follow">
-      <h3>Follow The Brones</h3>
-      <a href="https://open.spotify.com/artist/0mtzVqhEL4ujRFq8x9zsNk">Spotify</a>
-      <a href="https://music.apple.com/us/artist/the-brones/1796931947">Apple Music</a>
-      <a href="https://www.youtube.com/channel/UCfguO3ZDXP3W0OIPA9zcOWw">YouTube</a>
-    </div>
+    <h2>Welcome</h2>
+    <p>The Brones are a group of friends who came together to create music with depth, meaning, and metaphor. With a blend of alternative grit and melodic metal, they’re already turning heads and tuning hearts. Explore the site to learn more, hear new music, and catch upcoming shows!</p>
   </main>
-
-  <footer class="footer">
-    © 2025 Brone Media
-  </footer>
-
-  
-  <script></script>
-<div id="cookie-banner">
-    <div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
-    <div class="banner-buttons">
-      <button class="accept-btn" onclick="setConsent(true)">Accept</button>
-      <button class="decline-btn" onclick="setConsent(false)">Decline</button>
-    </div>
-  </div>
-<script>function setConsent(consent) {
-      document.cookie = "cookie_consent=" + consent + "; path=/; max-age=" + (60 * 60 * 24 * 365);
-      document.getElementById('cookie-banner').style.display = 'none';
-      if (consent) {
-        loadAnalytics();
-        allowSpotify = true;
-      }
-    }
-
-    function loadAnalytics() {
-      const ga = document.createElement("script");
-      ga.setAttribute("async", "");
-      ga.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6");
-      document.head.appendChild(ga);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-B0DLGFTMH6');
-    }
-
-    function checkConsent() {
-      if (document.cookie.includes("cookie_consent=true")) {
-        document.getElementById('cookie-banner').style.display = 'none';
-        loadAnalytics();
-        allowSpotify = true;
-      } else if (document.cookie.includes("cookie_consent=false")) {
-        document.getElementById('cookie-banner').style.display = 'none';
-      }
-    }
-
-    let allowSpotify = false;
-    window.onload = checkConsent;</script>
+  <footer>&copy; 2025 Brone Media</footer>
 </body>
 </html>

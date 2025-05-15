@@ -1,171 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - The Brones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #111;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header, footer {
-      background-color: #1db954;
-      padding: 1em 0;
-      font-weight: bold;
-    }
-    nav a {
-      color: black;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    h1 {
-      margin-top: 2rem;
-      font-size: 2rem;
-    }
-    h2 {
-      margin-top: 0.5rem;
-      font-size: 1.3rem;
-    }
-    .footer {
-      margin-top: 4rem;
-      padding: 1rem;
-      background-color: #1db954;
-      color: black;
-    }
-    .follow {
-      margin-top: 2em;
-    }
-    .follow a {
-      display: block;
-      margin: 0.25em;
-      color: #1db954;
-      text-decoration: none;
-    }
-    
+    body { font-family: 'Montserrat', sans-serif; background: #121212; color: #f0f0f0; margin: 0; }
+    nav { background: #1db954; padding: 1em; text-align: center; }
+    nav a { color: #000; text-decoration: none; margin: 0 1em; font-weight: bold; }
+    main { padding: 2em; max-width: 800px; margin: auto; }
+    footer { background: #1db954; text-align: center; padding: 1em; color: #000; margin-top: 2em; }
+    a { color: #1db954; }
   </style>
-<style>#cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #222;
-      color: white;
-      padding: 1em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 1000;
-      font-size: 0.95rem;
-    }
-
-    #cookie-banner .banner-text {
-      text-align: center;
-      margin-bottom: 0.75em;
-      padding: 0 1em;
-    }
-
-    #cookie-banner .banner-buttons {
-      display: flex;
-      gap: 0.75em;
-      flex-direction: column;
-      width: 100%;
-      max-width: 300px;
-    }
-
-    #cookie-banner .banner-buttons button {
-      width: 100%;
-      padding: 0.6em 1em;
-      font-weight: bold;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .accept-btn { background-color: #1db954; color: #000; }
-    .decline-btn { background-color: #555; color: white; }</style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="media.html">Media</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="music.html">Music</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <main>
-    <h1>Contact</h1>
-    
-        <h2>Contact The Brones</h2>
-        <form action="https://formspree.io/f/xjkwjyjb" method="POST" style="display: flex; flex-direction: column; gap: 1em; max-width: 400px; margin: auto;">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="_replyto" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" style="background-color: #1db954; color: black; font-weight: bold; padding: 0.75em; border: none; border-radius: 5px;">Send</button>
-        </form>
-        
-    <div class="follow">
-      <h3>Follow The Brones</h3>
-      <a href="https://open.spotify.com/artist/0mtzVqhEL4ujRFq8x9zsNk">Spotify</a>
-      <a href="https://music.apple.com/us/artist/the-brones/1796931947">Apple Music</a>
-      <a href="https://www.youtube.com/channel/UCfguO3ZDXP3W0OIPA9zcOWw">YouTube</a>
-    </div>
+    <h1>Contact Us</h1>
+    <p><strong>Email:</strong> Coming soon! For now, reach out to the band manager directly.</p>
+    <p><strong>Social Media:</strong> We'll be launching soon on Instagram, TikTok, and YouTube. Stay tuned!</p>
   </main>
-
-  <footer class="footer">
-    © 2025 Brone Media
-  </footer>
-
-  
-  <script></script>
-<div id="cookie-banner">
-    <div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
-    <div class="banner-buttons">
-      <button class="accept-btn" onclick="setConsent(true)">Accept</button>
-      <button class="decline-btn" onclick="setConsent(false)">Decline</button>
-    </div>
-  </div>
-<script>function setConsent(consent) {
-      document.cookie = "cookie_consent=" + consent + "; path=/; max-age=" + (60 * 60 * 24 * 365);
-      document.getElementById('cookie-banner').style.display = 'none';
-      if (consent) {
-        loadAnalytics();
-        allowSpotify = true;
-      }
-    }
-
-    function loadAnalytics() {
-      const ga = document.createElement("script");
-      ga.setAttribute("async", "");
-      ga.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6");
-      document.head.appendChild(ga);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-B0DLGFTMH6');
-    }
-
-    function checkConsent() {
-      if (document.cookie.includes("cookie_consent=true")) {
-        document.getElementById('cookie-banner').style.display = 'none';
-        loadAnalytics();
-        allowSpotify = true;
-      } else if (document.cookie.includes("cookie_consent=false")) {
-        document.getElementById('cookie-banner').style.display = 'none';
-      }
-    }
-
-    let allowSpotify = false;
-    window.onload = checkConsent;</script>
+  <footer>&copy; 2025 The Brones</footer>
 </body>
 </html>
