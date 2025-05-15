@@ -36,44 +36,6 @@
     .accept-btn { background-color: #1db954; color: #000; }
     .decline-btn { background-color: #555; color: white; }
   </style>
-<style>
-#cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #222;
-  color: white;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000;
-  font-size: 0.95rem;
-}
-#cookie-banner .banner-text {
-  text-align: center;
-  margin-bottom: 0.75em;
-  padding: 0 1em;
-}
-#cookie-banner .banner-buttons {
-  display: flex;
-  gap: 0.75em;
-  flex-direction: column;
-  width: 100%;
-  max-width: 300px;
-}
-#cookie-banner .banner-buttons button {
-  width: 100%;
-  padding: 0.6em 1em;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.accept-btn { background-color: #1db954; color: #000; }
-.decline-btn { background-color: #555; color: white; }
-</style>
 </head>
 <body>
   <nav>
@@ -123,7 +85,7 @@
     function loadAnalytics() {
       const ga = document.createElement("script");
       ga.setAttribute("async", "");
-      ga.setAttribute("src", "");
+      ga.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6");
       document.head.appendChild(ga);
 
       window.dataLayer = window.dataLayer || [];
@@ -163,46 +125,5 @@
 
     window.onload = checkConsent;
   </script>
-
-<div id="cookie-banner">
-  <div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
-  <div class="banner-buttons">
-    <button class="accept-btn" onclick="setConsent(true)">Accept</button>
-    <button class="decline-btn" onclick="setConsent(false)">Decline</button>
-  </div>
-</div>
-
-<script>
-function setConsent(consent) {
-  document.cookie = "cookie_consent=" + consent + "; path=/; max-age=" + (60 * 60 * 24 * 365);
-  document.getElementById('cookie-banner').style.display = 'none';
-  if (consent) {
-    loadAnalytics();
-    allowSpotify = true;
-  }
-}
-function loadAnalytics() {
-  const ga = document.createElement("script");
-  ga.setAttribute("async", "");
-  ga.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6");
-  document.head.appendChild(ga);
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', 'G-B0DLGFTMH6');
-}
-function checkConsent() {
-  if (document.cookie.includes("cookie_consent=true")) {
-    document.getElementById('cookie-banner').style.display = 'none';
-    loadAnalytics();
-    allowSpotify = true;
-  } else if (document.cookie.includes("cookie_consent=false")) {
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
-}
-let allowSpotify = false;
-window.onload = checkConsent;
-</script>
 </body>
 </html>
