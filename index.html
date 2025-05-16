@@ -1,116 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Brones</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: white;
-    }
-    header {
-      background-color: #00c040;
-      padding: 15px;
-      text-align: center;
-    }
-    nav a {
-      color: black;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      background: url("images/1000007523.jpg") center center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 15px 10px 60px;
-      font-size: 14px;
-      z-index: 9999;
-    }
-    .cookie-banner button {
-      display: inline-block;
-      margin: 5px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .cookie-banner .accept {
-      background: #00c040;
-      color: black;
-    }
-    .cookie-banner .decline {
-      background: #444;
-      color: white;
-    }
-    @media (max-width: 768px) {
-      .hero {
-        height: auto;
-        padding: 60px 0;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Brones</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
+        header {
+            background-color: #00cc44;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav a {
+            color: #000;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background-image: url('images/1000007523.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero h1 {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 3rem;
+        }
+        .footer {
+            background-color: #00cc44;
+            color: black;
+            text-align: center;
+            padding: 1rem;
+        }
+        #cookie-consent-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            z-index: 1000;
+        }
+        #cookie-consent-banner button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #cookie-consent-banner .accept {
+            background-color: #00cc44;
+            color: black;
+        }
+        #cookie-consent-banner .decline {
+            background-color: #444;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="media.html">Media</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="media.html">Media</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-  <div class="hero">
-    <h1>The Brones</h1>
-  </div>
+    <section class="hero">
+        <h1>The Brones</h1>
+    </section>
 
-  <div id="cookieConsent" class="cookie-banner" style="display: none">
-    <p>This site uses cookies for analytics and embedded media. Choose your preference.</p>
-    <button class="accept" onclick="handleCookieConsent(true)">Accept</button>
-    <button class="decline" onclick="handleCookieConsent(false)">Decline</button>
-  </div>
+    <footer class="footer">
+        <p>© 2025 Brone Media</p>
+    </footer>
 
-  <script>
-    function handleCookieConsent(consent) {
-      localStorage.setItem("cookieConsent", consent);
-      document.getElementById("cookieConsent").style.display = "none";
-    }
+    <div id="cookie-consent-banner">
+        <p>This site uses cookies for analytics and embedded media. Choose your preference.</p>
+        <button class="accept" onclick="acceptCookies()">Accept</button>
+        <button class="decline" onclick="declineCookies()">Decline</button>
+    </div>
 
-    window.onload = () => {
-      const consent = localStorage.getItem("cookieConsent");
-      if (consent === null) {
-        document.getElementById("cookieConsent").style.display = "block";
-      }
-    };
-  </script>
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookie-consent-banner').style.display = 'none';
+            localStorage.setItem('cookieConsent', 'accepted');
+        }
+
+        function declineCookies() {
+            document.getElementById('cookie-consent-banner').style.display = 'none';
+            localStorage.setItem('cookieConsent', 'declined');
+        }
+
+        window.onload = function() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (consent === 'accepted' || consent === 'declined') {
+                document.getElementById('cookie-consent-banner').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
