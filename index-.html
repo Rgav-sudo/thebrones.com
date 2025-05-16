@@ -1,45 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Brones</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Brones</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #121212;
-      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
     }
     header {
-      background: url('images/hero-band-photo.jpg') center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
-    header h1 {
-      font-size: 4rem;
-      margin: 0;
-      background-color: rgba(0,0,0,0.5);
-      padding: 0.5em 1em;
-      border-radius: 10px;
-    }
-    header p {
-      font-size: 1.5rem;
-      background-color: rgba(0,0,0,0.4);
-      padding: 0.5em 1em;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    nav {
-      background-color: #1db954;
-      padding: 1em;
+      background: #00c851;
+      padding: 1em 0;
       text-align: center;
     }
     nav a {
@@ -48,130 +23,119 @@
       margin: 0 1em;
       font-weight: bold;
     }
-    main {
-      padding: 2em;
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 90vh;
+      object-fit: cover;
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1em 2em;
+      border-radius: 10px;
       text-align: center;
     }
-    main h2 {
-      margin-bottom: 1em;
+    .hero-text h1 {
+      font-size: 2.5em;
+      margin: 0;
     }
-    main p {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
+    .hero-text p {
+      margin: 0.5em 0 0;
+      font-size: 1.2em;
     }
     footer {
-      background-color: #1db954;
-      color: #000;
       text-align: center;
+      background: #00c851;
       padding: 1em;
-      margin-top: 2em;
+      font-weight: bold;
+    }
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #222;
+      color: #fff;
+      padding: 1em;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+      z-index: 999;
+    }
+    .cookie-buttons button {
+      margin: 0 0.5em;
+      padding: 0.5em 1em;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .cookie-buttons .accept {
+      background: #00c851;
+      color: #000;
+      font-weight: bold;
+    }
+    .cookie-buttons .decline {
+      background: #888;
+      color: #fff;
     }
   </style>
-<style>
-#cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #222;
-  color: white;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000;
-  font-size: 0.95rem;
-}
-#cookie-banner .banner-text {
-  text-align: center;
-  margin-bottom: 0.75em;
-  padding: 0 1em;
-}
-#cookie-banner .banner-buttons {
-  display: flex;
-  gap: 0.75em;
-  flex-direction: column;
-  width: 100%;
-  max-width: 300px;
-}
-#cookie-banner .banner-buttons button {
-  width: 100%;
-  padding: 0.6em 1em;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.accept-btn { background-color: #1db954; color: #000; }
-.decline-btn { background-color: #555; color: white; }
-</style>
 </head>
 <body>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="media.html">Media</a>
-<a href="events.html">Events</a>
-<a href="contact.html">Contact</a>
-</nav>
-<header>
-<h1>The Brones</h1>
-<p>Alternative &amp; Metal from Louisiana &amp; Arizona</p>
-</header>
-<main>
-<h2>Welcome</h2>
-<p>The Brones are a group of friends who came together to create music with depth, meaning, and metaphor. With a blend of alternative grit and melodic metal, they’re already turning heads and tuning hearts. Explore the site to learn more, hear new music, and catch upcoming shows!</p>
-</main>
-<footer>© 2025 The Brones</footer>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="media.html">Media</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<div id="cookie-banner">
-<div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
-<div class="banner-buttons">
-<button class="accept-btn" onclick="setConsent(true)">Accept</button>
-<button class="decline-btn" onclick="setConsent(false)">Decline</button>
-</div>
-</div>
-
-<div id="cookie-banner">
-  <div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
-  <div class="banner-buttons">
-    <button class="accept-btn" onclick="setConsent(true)">Accept</button>
-    <button class="decline-btn" onclick="setConsent(false)">Decline</button>
+  <div class="hero">
+    <img src="images/1000007523.jpg" alt="The Brones Band Hero Image" />
+    <div class="hero-text">
+      <h1>The Brones</h1>
+      <p>Alternative & Metal from Louisiana & Arizona</p>
+    </div>
   </div>
-</div>
 
-<script>
-function setConsent(consent) {
-  document.cookie = "cookie_consent=" + consent + "; path=/; max-age=" + (60 * 60 * 24 * 365);
-  document.getElementById('cookie-banner').style.display = 'none';
-  if (consent) {
-    loadAnalytics();
-    allowSpotify = true;
-  }
-}
-function loadAnalytics() {
-  const ga = document.createElement("script");
-  ga.setAttribute("async", "");
-  ga.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6");
-  document.head.appendChild(ga);
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', 'G-B0DLGFTMH6');
-}
-function checkConsent() {
-  if (document.cookie.includes("cookie_consent=true")) {
-    document.getElementById('cookie-banner').style.display = 'none';
-    loadAnalytics();
-    allowSpotify = true;
-  } else if (document.cookie.includes("cookie_consent=false")) {
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
-}
-let allowSpotify = false;
-window.onload = checkConsent;
-</script>
+  <footer>
+    &copy; 2025 Brone Media
+  </footer>
+
+  <div id="cookieBanner" class="cookie-banner">
+    <p>This site uses cookies for analytics and embedded media. Choose your preference.</p>
+    <div class="cookie-buttons">
+      <button class="accept" onclick="setCookieConsent(true)">Accept</button>
+      <button class="decline" onclick="setCookieConsent(false)">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    function setCookieConsent(consent) {
+      document.cookie = `cookieConsent=${consent}; path=/; max-age=31536000`;
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+
+    function getCookieConsent() {
+      return document.cookie.includes('cookieConsent=true');
+    }
+
+    window.onload = () => {
+      if (getCookieConsent()) {
+        document.getElementById('cookieBanner').style.display = 'none';
+      }
+    };
+  </script>
 </body>
 </html>
