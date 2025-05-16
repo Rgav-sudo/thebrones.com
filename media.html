@@ -1,92 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Media - The Brones - The Brones</title>
-  
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, sans-serif; background-color: #111; color: #fff; text-align: center; }
-  nav { background-color: #00c853; padding: 1rem; }
-  nav a { margin: 0 1rem; color: #000; font-weight: bold; text-decoration: none; }
-  main { padding: 2rem; max-width: 900px; margin: auto; text-align: left; }
-  footer { margin-top: 2rem; background-color: #00c853; padding: 1rem; color: #000; text-align: center; }
-  .cookie-banner {
-    position: fixed;
-    bottom: 0; left: 0; width: 100%;
-    background-color: #222; color: #fff;
-    padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
-    z-index: 1000;
-  }
-  .cookie-banner button {
-    padding: 0.5rem 1rem; font-weight: bold; cursor: pointer; border: none; border-radius: 5px;
-  }
-  .accept-btn { background-color: #00c853; color: #000; }
-  .decline-btn { background-color: #444; color: #fff; }
-</style>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media - The Brones</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #111;
+      color: white;
+    }
+    nav {
+      background-color: #00c853;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: black;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+    .spotify-embed {
+      margin: 20px auto;
+      max-width: 400px;
+      display: none;
+    }
+    .spotify-consent {
+      background-color: #333;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 8px;
+    }
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    .cookie-banner button {
+      margin: 5px;
+      padding: 5px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .cookie-banner .accept {
+      background-color: #00c853;
+      color: black;
+    }
+    .cookie-banner .decline {
+      background-color: #555;
+      color: white;
+    }
+    footer {
+      background-color: #00c853;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="media.html">Media</a>
-  <a href="events.html">Events</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="media.html">Media</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  <main>
-    <main>
-<h1>Media</h1>
-<h2>Latest Release: Arcade</h2>
-<div id="spotify-container">
-<div class="spotify-placeholder" id="spotify-placeholder">
-        This Spotify preview requires cookie consent to load. Click below to allow.
-        <br/>
-<button onclick="loadSpotify()">Load Spotify Player</button>
-</div>
-</div>
-<h2>Follow The Brones</h2>
-<ul style="list-style: none; padding: 0;">
-<li><a href="https://open.spotify.com/artist/0mtzVqhEL4ujRFq8x9zsNk" target="_blank">Spotify</a></li>
-<li><a href="https://music.apple.com/us/artist/the-brones/1796931947" target="_blank">Apple Music</a></li>
-<li><a href="https://www.youtube.com/channel/UCfguO3ZDXP3W0OIPA9zcOWw" target="_blank">YouTube</a></li>
-</ul>
-</main>
-  </main>
-  
-<footer>
-  &copy; 2025 Brone Media
-</footer>
-
-  
-<div class="cookie-banner" id="cookieBanner">
-  <p>This site uses cookies for analytics and embedded media. Choose your preference.</p>
-  <div>
-    <button class="accept-btn" onclick="acceptCookies()">Accept</button>
-    <button class="decline-btn" onclick="declineCookies()">Decline</button>
+  <div class="container">
+    <h1>Media</h1>
+    <h2>Latest Release: Arcade</h2>
+    <div class="spotify-consent" id="spotify-consent">
+      <p>This Spotify preview requires cookie consent to load. Click below to allow.</p>
+      <button onclick="loadSpotify()">Load Spotify Player</button>
+    </div>
+    <iframe id="spotify-embed" class="spotify-embed" style="border-radius:12px" src="https://open.spotify.com/embed/album/24vVhcn4BUR42NdJpvNHtB?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    
+    <h3>Follow The Brones</h3>
+    <p><a href="https://open.spotify.com/artist/0mtzVqhEL4ujRFq8x9zsNk" target="_blank">Spotify</a></p>
+    <p><a href="https://music.apple.com/us/artist/the-brones/1796931947" target="_blank">Apple Music</a></p>
+    <p><a href="https://www.youtube.com/channel/UCfguO3ZDXP3W0OIPA9zcOWw" target="_blank">YouTube</a></p>
   </div>
-</div>
 
-  
-<script>
-function acceptCookies() {
-  localStorage.setItem('cookieConsent', 'accepted');
-  document.getElementById('cookieBanner').style.display = 'none';
-}
-function declineCookies() {
-  localStorage.setItem('cookieConsent', 'declined');
-  document.getElementById('cookieBanner').style.display = 'none';
-}
-window.onload = function () {
-  const consent = localStorage.getItem('cookieConsent');
-  if (consent === 'accepted' || consent === 'declined') {
-    document.getElementById('cookieBanner').style.display = 'none';
-  }
-};
-</script>
+  <footer>
+    © 2025 Brone Media
+  </footer>
 
+  <div class="cookie-banner" id="cookie-banner">
+    <p>This site uses cookies for analytics and embedded media. Choose your preference.</p>
+    <button class="accept" onclick="acceptCookies()">Accept</button>
+    <button class="decline" onclick="declineCookies()">Decline</button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'true');
+      document.getElementById('cookie-banner').style.display = 'none';
+      if (document.getElementById('spotify-consent')) {
+        loadSpotify();
+      }
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'false');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    function loadSpotify() {
+      if (localStorage.getItem('cookieConsent') === 'true') {
+        document.getElementById('spotify-consent').style.display = 'none';
+        document.getElementById('spotify-embed').style.display = 'block';
+      }
+    }
+
+    // Initial check
+    if (localStorage.getItem('cookieConsent')) {
+      document.getElementById('cookie-banner').style.display = 'none';
+      if (localStorage.getItem('cookieConsent') === 'true') {
+        loadSpotify();
+      }
+    }
+  </script>
 </body>
 </html>
