@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Events - The Brones</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Montserrat', sans-serif; background: #121212; color: #f0f0f0; margin: 0; }
+    nav { background: #1db954; padding: 1em; text-align: center; }
+    nav a { color: #000; text-decoration: none; margin: 0 1em; font-weight: bold; }
+    main { padding: 2em; max-width: 800px; margin: auto; }
+    footer { background: #1db954; text-align: center; padding: 1em; color: #000; margin-top: 2em; }
+    iframe { width: 100%; border: none; }
+    a { color: #1db954; }
+  </style>
+<!-- Google tag (gtag.js) -->
+
+
+<style>
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #222;
+  color: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  font-size: 0.95rem;
+}
+#cookie-banner .banner-text {
+  text-align: center;
+  margin-bottom: 0.75em;
+  padding: 0 1em;
+}
+#cookie-banner .banner-buttons {
+  display: flex;
+  gap: 0.75em;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+}
+#cookie-banner .banner-buttons button {
+  width: 100%;
+  padding: 0.6em 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.accept-btn { background-color: #1db954; color: #000; }
+.decline-btn { background-color: #555; color: white; }
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="media.html">Media</a>
+<a href="events.html">Events</a>
+<a href="contact.html">Contact</a>
+</nav>
+<main>
+<h1>Upcoming Events</h1><p>No shows booked yet. Stay tuned!</p>
+</main>
+<footer>© 2025 The Brones</footer>
+
+<div id="cookie-banner">
+<div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
+<div class="banner-buttons">
+<button class="accept-btn" onclick="setConsent(true)">Accept</button>
+<button class="decline-btn" onclick="setConsent(false)">Decline</button>
+</div>
+</div>
+
+<div id="cookie-banner">
+  <div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
+  <div class="banner-buttons">
+    <button class="accept-btn" onclick="setConsent(true)">Accept</button>
+    <button class="decline-btn" onclick="setConsent(false)">Decline</button>
+  </div>
+</div>
+
+<script>
+function setConsent(consent) {
+  document.cookie = "cookie_consent=" + consent + "; path=/; max-age=" + (60 * 60 * 24 * 365);
+  document.getElementById('cookie-banner').style.display = 'none';
+  if (consent) {
+    loadAnalytics();
+    allowSpotify = true;
+  }
+}
+function loadAnalytics() {
+  const ga = document.createElement("script");
+  ga.setAttribute("async", "");
+  ga.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6");
+  document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-B0DLGFTMH6');
+}
+function checkConsent() {
+  if (document.cookie.includes("cookie_consent=true")) {
+    document.getElementById('cookie-banner').style.display = 'none';
+    loadAnalytics();
+    allowSpotify = true;
+  } else if (document.cookie.includes("cookie_consent=false")) {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+}
+let allowSpotify = false;
+window.onload = checkConsent;
+</script>
+</body>
+</html>
