@@ -3,50 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - The Brones</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Montserrat', sans-serif; background: #121212; color: #f0f0f0; margin: 0; }
-    nav { background: #1db954; padding: 1em; text-align: center; }
-    nav a { color: #000; text-decoration: none; margin: 0 1em; font-weight: bold; }
-    main { padding: 2em; max-width: 600px; margin: auto; }
-    footer { background: #1db954; text-align: center; padding: 1em; color: #000; margin-top: 2em; }
-    input, textarea { font-family: inherit; }
-  </style>
+  <title>Contact - The Brones - The Brones</title>
+  
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background-color: #111; color: #fff; text-align: center; }
+  nav { background-color: #00c853; padding: 1rem; }
+  nav a { margin: 0 1rem; color: #000; font-weight: bold; text-decoration: none; }
+  main { padding: 2rem; max-width: 900px; margin: auto; text-align: left; }
+  footer { margin-top: 2rem; background-color: #00c853; padding: 1rem; color: #000; text-align: center; }
+  .cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; width: 100%;
+    background-color: #222; color: #fff;
+    padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+    z-index: 1000;
+  }
+  .cookie-banner button {
+    padding: 0.5rem 1rem; font-weight: bold; cursor: pointer; border: none; border-radius: 5px;
+  }
+  .accept-btn { background-color: #00c853; color: #000; }
+  .decline-btn { background-color: #444; color: #fff; }
+</style>
+
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="media.html">Media</a>
-    <a href="events.html">Events</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="media.html">Media</a>
+  <a href="events.html">Events</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
   <main>
-    <h1>Contact The Brones</h1>
-    <p>Use the form below to reach out to the band. Booking, fan mail, or feedback — we’d love to hear it!</p>
-
-    <form action="https://formspree.io/f/xjkwjyjb" method="POST" style="display: flex; flex-direction: column; gap: 1em;">
-      <label>
+    <main>
+<h1>Contact The Brones</h1>
+<p>Use the form below to reach out to the band. Booking, fan mail, or feedback — we’d love to hear it!</p>
+<form action="https://formspree.io/f/xjkwjyjb" method="POST" style="display: flex; flex-direction: column; gap: 1em;">
+<label>
         Name:
-        <input type="text" name="name" required style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;" />
-      </label>
-
-      <label>
+        <input name="name" required="" style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;" type="text"/>
+</label>
+<label>
         Email:
-        <input type="email" name="email" required style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;" />
-      </label>
-
-      <label>
+        <input name="email" required="" style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;" type="email"/>
+</label>
+<label>
         Message:
-        <textarea name="message" rows="6" required style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;"></textarea>
-      </label>
-
-      <button type="submit" style="background-color: #1db954; color: black; padding: 0.75em; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+        <textarea name="message" required="" rows="6" style="width: 100%; padding: 0.5em; border-radius: 6px; border: none;"></textarea>
+</label>
+<button style="background-color: #1db954; color: black; padding: 0.75em; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;" type="submit">
         Send Message
       </button>
-    </form>
+</form>
+</main>
   </main>
-  <footer>&copy; 2025 The Brones</footer>
+  
+<footer>
+  &copy; 2025 Brone Media
+</footer>
+
+  
+<div class="cookie-banner" id="cookieBanner">
+  <p>This site uses cookies for analytics and embedded media. Choose your preference.</p>
+  <div>
+    <button class="accept-btn" onclick="acceptCookies()">Accept</button>
+    <button class="decline-btn" onclick="declineCookies()">Decline</button>
+  </div>
+</div>
+
+  
+<script>
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+function declineCookies() {
+  localStorage.setItem('cookieConsent', 'declined');
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+window.onload = function () {
+  const consent = localStorage.getItem('cookieConsent');
+  if (consent === 'accepted' || consent === 'declined') {
+    document.getElementById('cookieBanner').style.display = 'none';
+  }
+};
+</script>
+
 </body>
 </html>
