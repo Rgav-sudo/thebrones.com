@@ -1,160 +1,116 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Brones</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Brones</title>
+  <style>
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #121212;
-      color: #f0f0f0;
-    }
-    header {
-      background: url('images/hero-band-photo.jpg') center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #111;
       color: white;
     }
-    header h1 {
-      font-size: 4rem;
-      margin: 0;
-      background-color: rgba(0,0,0,0.5);
-      padding: 0.5em 1em;
-      border-radius: 10px;
-    }
-    header p {
-      font-size: 1.5rem;
-      background-color: rgba(0,0,0,0.4);
-      padding: 0.5em 1em;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    nav {
-      background-color: #1db954;
-      padding: 1em;
+    header {
+      background-color: #00c040;
+      padding: 15px;
       text-align: center;
     }
     nav a {
-      color: #000;
+      color: black;
       text-decoration: none;
-      margin: 0 1em;
+      margin: 0 15px;
       font-weight: bold;
     }
-    main {
-      padding: 2em;
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url("images/1000007523.jpg") center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
-    main h2 {
-      margin-bottom: 1em;
+    .hero h1 {
+      font-size: 3rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 5px;
     }
-    main p {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
-    footer {
-      background-color: #1db954;
-      color: #000;
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #222;
+      color: white;
       text-align: center;
-      padding: 1em;
-      margin-top: 2em;
+      padding: 15px 10px 60px;
+      font-size: 14px;
+      z-index: 9999;
+    }
+    .cookie-banner button {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .cookie-banner .accept {
+      background: #00c040;
+      color: black;
+    }
+    .cookie-banner .decline {
+      background: #444;
+      color: white;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        padding: 60px 0;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
     }
   </style>
-<style>
-#cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #222;
-  color: white;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000;
-  font-size: 0.95rem;
-}
-#cookie-banner .banner-text {
-  text-align: center;
-  margin-bottom: 0.75em;
-  padding: 0 1em;
-}
-#cookie-banner .banner-buttons {
-  display: flex;
-  gap: 0.75em;
-  flex-direction: column;
-  width: 100%;
-  max-width: 300px;
-}
-.accept-btn { background-color: #1db954; color: #000; }
-.decline-btn { background-color: #555; color: white; }
-</style>
 </head>
 <body>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="media.html">Media</a>
-<a href="events.html">Events</a>
-<a href="contact.html">Contact</a>
-</nav>
-<header>
-<h1>The Brones</h1>
-<p>Alternative &amp; Metal from Louisiana &amp; Arizona</p>
-</header>
-<main>
-<h2>Welcome</h2>
-<p>The Brones are a group of friends who came together to create music with depth, meaning, and metaphor. With a blend of alternative grit and melodic metal, they’re already turning heads and tuning hearts. Explore the site to learn more, hear new music, and catch upcoming shows!</p>
-</main>
-<footer>© 2025 The Brones</footer>
-<div id="cookie-banner">
-<div class="banner-text">This site uses cookies for analytics and embedded media. Choose your preference.</div>
-<div class="banner-buttons">
-<button class="accept-btn" onclick="setConsent(true)">Accept</button>
-<button class="decline-btn" onclick="setConsent(false)">Decline</button>
-</div>
-</div>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="media.html">Media</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<script>
-function setConsent(consent) {
-  document.cookie = "cookie_consent=" + consent + "; path=/; max-age=" + (60 * 60 * 24 * 365);
-  document.getElementById('cookie-banner').style.display = 'none';
-  if (consent) {
-    loadAnalytics();
-    allowSpotify = true;
-  }
-}
-function loadAnalytics() {
-  const ga = document.createElement("script");
-  ga.setAttribute("async", "");
-  ga.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-B0DLGFTMH6");
-  document.head.appendChild(ga);
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', 'G-B0DLGFTMH6');
-}
-function checkConsent() {
-  if (document.cookie.includes("cookie_consent=true")) {
-    document.getElementById('cookie-banner').style.display = 'none';
-    loadAnalytics();
-    allowSpotify = true;
-  } else if (document.cookie.includes("cookie_consent=false")) {
-    document.getElementById('cookie-banner').style.display = 'none';
-  }
-}
-let allowSpotify = false;
-window.onload = checkConsent;
-</script>
+  <div class="hero">
+    <h1>The Brones</h1>
+  </div>
+
+  <div id="cookieConsent" class="cookie-banner" style="display: none">
+    <p>This site uses cookies for analytics and embedded media. Choose your preference.</p>
+    <button class="accept" onclick="handleCookieConsent(true)">Accept</button>
+    <button class="decline" onclick="handleCookieConsent(false)">Decline</button>
+  </div>
+
+  <script>
+    function handleCookieConsent(consent) {
+      localStorage.setItem("cookieConsent", consent);
+      document.getElementById("cookieConsent").style.display = "none";
+    }
+
+    window.onload = () => {
+      const consent = localStorage.getItem("cookieConsent");
+      if (consent === null) {
+        document.getElementById("cookieConsent").style.display = "block";
+      }
+    };
+  </script>
 </body>
 </html>
