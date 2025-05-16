@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - The Brones</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    nav {
+      background-color: #1db954;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    img.band-photo {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+      margin: 0 auto 1.5rem auto;
+      display: block;
+    }
+    .members {
+      margin-top: 2rem;
+    }
+    .member {
+      margin-bottom: 1.2rem;
+    }
+    .member h3 {
+      color: #1db954;
+    }
+    footer {
+      background-color: #1db954;
+      color: #000;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      z-index: 9999;
+    }
+    .cookie-banner button {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .accept-btn {
+      background-color: #1db954;
+      color: #000;
+    }
+    .decline-btn {
+      background-color: #555;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="media.html">Media</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <main>
+<h1>About The Brones</h1>
+<img alt="The Brones - Band Photo" class="band-photo" src="images/about-band-photo.jpg"/>
+<p>The Brones was formed in September of 2024. They perform and write in Louisiana and Arizona. They are an Alternative and Metal band containing music writer and lead singer Caleb Gavlas, with other guitarists and singers Layne Olivier, David Gavlas, Evan G, and band manager Trae.</p>
+<p>The Brones members are all good friends looking to make an entry into the world of music. Each enjoy making, writing, and playing music and want to share their love with the world. Taking unlikely things into a meaningful metaphor, they work hard to create music together and hope you enjoy.</p>
+<section class="members">
+<h2>Meet the Band</h2>
+<div class="member">
+<h3>Caleb Gavlas</h3>
+<p>Lead vocals, guitar, and principal writer. Caleb brings lyrical depth and a powerful vocal presence to the heart of The Brones.</p>
+</div>
+<div class="member">
+<h3>Dutch G.</h3>
+<p>Guitar and more. Dutch blends technical skill with stage charisma, adding a dynamic edge to the band's performances.</p>
+</div>
+<div class="member">
+<h3>David Gavlas</h3>
+<p>Guitarist with energy and finesse, David lays down the rhythms that ground the band's heavy sound.</p>
+</div>
+<div class="member">
+<h3>Layne Olivier</h3>
+<p>Guitarist and creative powerhouse, Layne delivers sharp riffs and harmony that elevate The Brones' signature style.</p>
+</div>
+<div class="member">
+<h3>Trae</h3>
+<p>Band Manager. The glue behind the scenes, Trae keeps the group moving forward and focused on the music.</p>
+</div>
+</section>
+</main>
+  </main>
+
+  <footer>
+    © 2025 Brone Media
+  </footer>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <p>This site uses cookies for analytics and embedded media. Choose your preference.</p>
+    <button class="accept-btn" onclick="acceptCookies()">Accept</button>
+    <button class="decline-btn" onclick="declineCookies()">Decline</button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'declined');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    window.onload = function () {
+      const consent = localStorage.getItem('cookieConsent');
+      if (consent === 'accepted' || consent === 'declined') {
+        document.getElementById('cookieBanner').style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
